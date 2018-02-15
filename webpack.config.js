@@ -6,12 +6,11 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "public"),
         filename: 'js/app.js',
-        publicPath: "/public/"
+        publicPath: "/public/",
 
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -25,7 +24,7 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: ["css-loader"]
                 })
             },
             {
@@ -34,6 +33,38 @@ module.exports = {
                     fallback: 'style-loader',
                     use: ['css-loader', 'sass-loader']
                 })
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'img/[name].[ext]',
+                        publicPath: "../",
+                    }
+                }]
+            },
+            {
+                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'font/[name].[ext]',
+                        publicPath: "../",
+
+                    }
+                }]
+            },
+            {
+                test: /\.(svg)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: 'svg/[name].[ext]',
+                        publicPath: "../",
+
+                    }
+                }]
             },
         ]
     },

@@ -23,6 +23,8 @@
     "popper.js": "^1.12.9",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.20.1",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "file-loader": "^1.1.6",
+    "slick-carousel": "^1.8.1"
   }
 }
